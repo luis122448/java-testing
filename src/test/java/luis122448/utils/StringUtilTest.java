@@ -1,24 +1,28 @@
 package luis122448.utils;
 
-//import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 class StringUtilTest {
 
-    //psvm
-    public static void main(String[] args) {
-        String result = StringUtil.repeat("hola", 2);
-
-        assertEquals("holaholahola", result);
-        // sout
-//        System.out.println(result);
-//        if(!result.equals("holaholahola")) {
-//            throw new RuntimeException("Test failed");
-//        }
+    @Test
+    public void testRepeat_string_once() {
+        Assertions.assertEquals("hola", StringUtil.repeat("hola", 1));
     }
 
-    private static void assertEquals(String actual, String specter) {
-        if (!actual.equals(specter)) {
-            throw new RuntimeException(actual + " is not equal to " + specter);
-        }
+    @Test
+    public void testRepeat_string_multiple_times() {
+        assertEquals("holaholahola", StringUtil.repeat("hola", 3));
+    }
+
+    @Test
+    public void testRepeat_string_negative_times() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            StringUtil.repeat("hola", -1);
+        });
     }
 
 }
