@@ -3,8 +3,7 @@ package luis122448.utils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class StringUtilTest {
 
@@ -23,6 +22,26 @@ class StringUtilTest {
         assertThrows(IllegalArgumentException.class, () -> {
             StringUtil.repeat("hola", -1);
         });
+    }
+
+    @Test
+    public void testIsEmpty_string_true() {
+        assertFalse(StringUtil.isEmpty("Hola"));
+    }
+
+    @Test
+    public void testIsEmpty_string_null() {
+        assertTrue(StringUtil.isEmpty(null));
+    }
+
+    @Test
+    public void testIsEmpty_string_empty() {
+        assertTrue(StringUtil.isEmpty(""));
+    }
+
+    @Test
+    public void testIsEmpty_string_spaces() {
+        assertTrue(StringUtil.isEmpty("   "));
     }
 
 }
