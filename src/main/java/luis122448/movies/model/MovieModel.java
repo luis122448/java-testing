@@ -1,5 +1,7 @@
 package luis122448.movies.model;
 
+import java.util.Objects;
+
 public class MovieModel {
 
     private Integer id;
@@ -50,5 +52,18 @@ public class MovieModel {
 
     public GenreEnum getGenre() {
         return genre;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MovieModel that = (MovieModel) o;
+        return Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(minutes, that.minutes) && genre == that.genre;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, minutes, genre);
     }
 }

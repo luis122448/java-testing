@@ -7,6 +7,7 @@ import java.util.List;
 public interface MovieRepository {
 
     MovieModel findById(Integer id);
+    List<MovieModel> findByTitle(String title);
     List<MovieModel> findAll();
     void save(MovieModel movie);
 }
