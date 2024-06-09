@@ -1,4 +1,4 @@
-package luis122448.player;
+package luis122448.players;
 
 public class Player {
 

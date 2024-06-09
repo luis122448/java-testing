@@ -18,12 +18,17 @@ class PriceCalculatorTest {
         priceCalculator.addPrice(15.5);
         assertEquals(25.7, priceCalculator.getTotal());
     }
+
     @Test
     public void total_is_zero_when_prices_are_null() {
         PriceCalculator priceCalculator = new PriceCalculator();
-        priceCalculator.addPrice(null);
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            priceCalculator.addPrice(null);
+        });
+        assertEquals("Price can't be null", exception.getMessage());
         assertEquals(0.0, priceCalculator.getTotal());
     }
+
     @Test
     public void apply_discount_to_prices() {
         PriceCalculator priceCalculator = new PriceCalculator();

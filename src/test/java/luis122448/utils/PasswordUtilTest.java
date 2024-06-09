@@ -20,6 +20,6 @@ class PasswordUtilTest {
 
     @Test void strong_when_has_letters_and_numbers_and_symbols() {
         PasswordUtil passwordUtil = new PasswordUtil();
-        assertEquals(PasswordUtil.SecurityLevel.MEDIUM, passwordUtil.assessPassword("abcd1234#%%$"));
+        assertEquals(PasswordUtil.SecurityLevel.STRONG, passwordUtil.assessPassword("abcd1234#%%$"));
     }
 }

@@ -1,4 +1,4 @@
-package luis122448.player;
+package luis122448.players;
 
 import java.util.Random;
 

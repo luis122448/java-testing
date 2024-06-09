@@ -1,6 +1,7 @@
 package luis122448.utils;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PriceCalculator {
@@ -8,7 +9,7 @@ public class PriceCalculator {
     private List<Double> prices;
     private double discount;
     public PriceCalculator() {
-        this.prices = List.of();
+        this.prices = new ArrayList<>();
         this.discount = 0.0;
     }
     public double getTotal() {
@@ -21,7 +22,7 @@ public class PriceCalculator {
                 result += price;
             }
         }
-        return result * ((1.0-discount)/100.0);
+        return result * ((100.0-discount)/100.0);
     }
     public void addPrice(Double v) {
         if (v == null) {
